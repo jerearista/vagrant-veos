@@ -1,0 +1,90 @@
+{
+   "variables": {
+      "version": "Unknown",
+      "ram": "2048",
+      "boot_time":"2m30s"
+   },
+   "post-processors": [
+     {
+       "type": "vagrant",
+       "output": "../builds/vEOS_{{user `version`}}_{{.Provider}}.box",
+       "vagrantfile_template": "vagrantfile_templates/vEOS.rb"
+      }
+   ],
+   "builders": [
+      {
+          "boot_wait": "{{user `boot_time`}}",
+          "boot_command" : [
+            "admin<enter><wait>",
+            "en<enter><wait>",
+            "bash<enter><wait>",
+            "sudo dhclient ma1<enter><wait>",
+            "exit<enter><wait>",
+            "conf<enter>",
+            "aaa authorization exec default local<enter>",
+            "aaa root secret arista<enter>",
+            "username admin privilege 15 role network-admin secret admin<enter>",
+            "<exit>"
+          ],
+          "type": "virtualbox-ovf",
+          "name" : "vEOS",
+          "vm_name": "vEOS-{{user `version`}}",
+          "headless" : "True",
+          "source_path": "source/vEOS.ovf",
+          "output_directory" : "vEOS-{{user `version`}}",
+          "shutdown_command" : "sudo /sbin/halt -h -p",
+          "export_opts" : [ "--iso" ],
+          "guest_additions_mode" : "disable",
+          "virtualbox_version_file" : "/mnt/flash/vbox_version",
+          "ssh_username": "admin",
+          "ssh_password": "admin",
+          "vboxmanage": [
+              [ "modifyvm","{{.Name}}","--memory","{{user `ram`}}" ],
+              [ "modifyvm","{{.Name}}","--cpus","1" ],
+              [ "storageattach","{{.Name}}","--storagectl","IDE","--port","1","--device","0","--type","dvddrive","--medium","source/Aboot-vEOS.iso" ],
+              [ "modifyvm","{{.Name}}","--nic1","nat" ],
+              [ "modifyvm","{{.Name}}","--nicpromisc1","allow-all" ],
+              [ "modifyvm","{{.Name}}","--nic2","intnet" ],
+              [ "modifyvm","{{.Name}}","--intnet2","intnet{{.Name}}-2" ],
+              [ "modifyvm","{{.Name}}","--nicpromisc2","allow-all" ],
+              [ "modifyvm","{{.Name}}","--nic3","intnet" ],
+              [ "modifyvm","{{.Name}}","--intnet3","intnet{{.Name}}-3" ],
+              [ "modifyvm","{{.Name}}","--nicpromisc3","allow-all" ],
+              [ "modifyvm","{{.Name}}","--nic4","intnet" ],
+              [ "modifyvm","{{.Name}}","--intnet4","intnet{{.Name}}-4" ],
+              [ "modifyvm","{{.Name}}","--nicpromisc4","allow-all" ],
+              [ "modifyvm","{{.Name}}","--nic5","intnet" ],
+              [ "modifyvm","{{.Name}}","--intnet5","intnet{{.Name}}-5" ],
+              [ "modifyvm","{{.Name}}","--nicpromisc5","allow-all" ]
+          ],
+          "vboxmanage_post": [
+              [ "modifyvm","{{.Name}}","--nic1","intnet" ],
+              [ "modifyvm","{{.Name}}","--intnet1","intnet{{.Name}}-1" ],
+              [ "modifyvm","{{.Name}}","--nicpromisc1","allow-all" ]
+          ]
+      }
+   ],
+   "provisioners": [
+       {
+           "source": "scripts/startup-config",
+           "destination": "/mnt/flash/startup-config",
+           "type": "file"
+       },
+       {
+           "source": "scripts/vagrant.pub",
+           "destination": "/mnt/flash/vagrant.pub",
+           "type": "file"
+       },
+       {
+           "source": "scripts/rc.eos",
+           "destination": "/mnt/flash/rc.eos",
+           "type": "file"
+       },
+       {
+           "scripts": [
+               "scripts/vagrant.sh"
+           ],
+           "type": "shell"
+       }
+   ]
+}

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Install the insecure vagrant key
+sudo install -d -m 0700 /root/.ssh
+sudo cp /mnt/flash/vagrant.pub /root/.ssh/authorized_keys
+sudo chmod 0600 /root/.ssh/authorized_keys
