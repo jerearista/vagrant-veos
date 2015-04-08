@@ -82,3 +82,7 @@ Logout and destroy the VM (All changes since boot will be lost)
       end
       copy running-config startup-config"
     SHELL
+
+## Support
+
+The contents of this repository are provided as-is with no warranty.  However, as I use this, myself, there is considerable value in ensuring this works reliably and stays up to date.  Community support is encouraged.
