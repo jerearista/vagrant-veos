@@ -32,7 +32,6 @@
           "headless" : "True",
           "source_path": "source/vEOS.ovf",
           "output_directory" : "vEOS-{{user `version`}}",
-          "shutdown_command" : "sudo /sbin/halt -h -p",
           "export_opts" : [ "--iso" ],
           "guest_additions_mode" : "disable",
           "virtualbox_version_file" : "/mnt/flash/vbox_version",
@@ -79,12 +78,6 @@
            "source": "scripts/rc.eos",
            "destination": "/mnt/flash/rc.eos",
            "type": "file"
-       },
-       {
-           "scripts": [
-               "scripts/vagrant.sh"
-           ],
-           "type": "shell"
        }
    ]
 }
