@@ -34,15 +34,51 @@ created by ``vagrant init``.
     vagrant box add vEOS-4.14.5F ../builds/vEOS_4.14.5F_virtualbox.box
     vagrant box list
 
+Create a new environment and define which box you wish to use
+
     mkdir vEOS-test
     cd vEOS-test
     vagrant init vEOS-4.14.5F
+
+Optionally, add any additional configuration to your Vagrantfile, then ‘up’ your VM and login
+
     vagrant up
     vagrant ssh
     -bash-4.1# FastCLI
     localhost> enable
     localhost# show version
+
+Logout and destroy the VM (All changes since boot will be lost)
+
+    CTRL+D
     CTRL+D
     vagrant destroy
 
+## Adding additional configuration to the Vagrantfile
 
+    config.vm.provider “virtualbox” do |v|
+      # Debugging or to see the console during ZTP
+      v.gui = true
+
+      # Networking:
+      #  nic1 is always Management1 which is set to dhcp in the basebox.
+      #
+      # Patch Ethernet1 to an internal network
+      v.customize [“modifyvm”, :id, “--nic2”, “intnet”, “--intnet2”, “vEOS-intnet1”]
+      # Patch Ethernet2 to an internal network
+      v.customize [“modifyvm”, :id, “--nic3”, “intnet”, “--intnet3”, “vEOS-intnet2”]
+    end 
+
+    # Configure a forwarded port to access eAPI on vEOS
+    # https://username:password@localhost:8443/command-api
+    config.vm.network “forwarded_port”, guest: 443, host: 8443
+
+    # The sample, below is preconfigured in the basebox
+    # Enable eAPI in the EOS config
+    config.vm.provision "shell", inline: <<-SHELL
+      FastCli -p 15 -c "configure
+      management api http-commands
+        no shutdown
+      end
+      copy running-config startup-config"
+    SHELL
