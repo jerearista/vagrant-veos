@@ -56,16 +56,28 @@ Logout and destroy the VM (All changes since boot will be lost)
 
 ## Adding additional configuration to the Vagrantfile
 
+    # Add additional NICs to the VM:
+    #   NIC1 (Management 1) - is created in the the basebox and vagrant always uses this via DHCP to communicate with the VM.
+    #   The default ZVagrantfile template includes Ethernet1 and Ethernet2.  Uncomment below to create additional
+    #     NICs which will be Ethernet 3-n                                
+    #   Using link-local addresses to satisfy the Vagrantfile config parser, only.
+    #config.vm.network "private_network", ip: "169.254.1.11", auto_config: false, virtualbox__intnet: true
+    #config.vm.network "private_network", virtualbox__intnet: "mynetwork-1", ip: "169.254.1.11", auto_config: false
+    # Create Ethernet1
+    config.vm.network "private_network", virtualbox__intnet: true, ip: "169.254.1.11", auto_config: false
+    # Create Ethernet2
+    config.vm.network "private_network", virtualbox__intnet: true, ip: "169.254.1.11", auto_config: false
+  
     config.vm.provider “virtualbox” do |v|
       # Debugging or to see the console during ZTP
-      v.gui = true
+      #v.gui = true
 
       # Networking:
       #  nic1 is always Management1 which is set to dhcp in the basebox.
       #
-      # Patch Ethernet1 to an internal network
+      # Patch Ethernet1 to a particular internal network
       v.customize [“modifyvm”, :id, “--nic2”, “intnet”, “--intnet2”, “vEOS-intnet1”]
-      # Patch Ethernet2 to an internal network
+      # Patch Ethernet2 to a particular internal network
       v.customize [“modifyvm”, :id, “--nic3”, “intnet”, “--intnet3”, “vEOS-intnet2”]
     end 
 
@@ -77,6 +89,7 @@ Logout and destroy the VM (All changes since boot will be lost)
     # Enable eAPI in the EOS config
     config.vm.provision "shell", inline: <<-SHELL
       FastCli -p 15 -c "configure
+      username vagrant privilege 15 role network-admin secret vagrant
       management api http-commands
         no shutdown
       end
@@ -85,4 +98,4 @@ Logout and destroy the VM (All changes since boot will be lost)
 
 ## Support
 
-The contents of this repository are provided as-is with no warranty.  However, as I use this, myself, there is considerable value in ensuring this works reliably and stays up to date.  Community support is encouraged.
+The contents of this repository are provided as-is with no warranty.  However, as I use this, myself, I have considerable interest in ensuring this works reliably and stays up to date.  Community support is encouraged.
