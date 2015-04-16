@@ -8,7 +8,7 @@ Sample builder to create vagrant vEOS boxes from the Aboot.iso and vEOS-lab.iso 
 * https://www.VirtualBox.org/
 * Booting the box requires https://www.VagrantUp.com/
 
-## Useage
+## Usage
 
 To build a vagrant box for Arista vEOS, first, you need to download 2 files from http://arista.com/ which requires registration.
 
@@ -58,18 +58,18 @@ Logout and destroy the VM (All changes since boot will be lost)
 
     # Add additional NICs to the VM:
     #   NIC1 (Management 1) - is created in the the basebox and vagrant always uses this via DHCP to communicate with the VM.
-    #   The default ZVagrantfile template includes Ethernet1 and Ethernet2.  Uncomment below to create additional
-    #     NICs which will be Ethernet 3-n                                
-    #   Using link-local addresses to satisfy the Vagrantfile config parser, only.
+    #   The default Vagrantfile template includes Ethernet1 and Ethernet2.  Add lines similar to those below to create
+    #     additional NICs which will be Ethernet 3-n                                
+    #   Using link-local addresses to satisfy the Vagrantfile config parser, only.  They will not be used by vEOS.
     #config.vm.network "private_network", ip: "169.254.1.11", auto_config: false, virtualbox__intnet: true
     #config.vm.network "private_network", virtualbox__intnet: "mynetwork-1", ip: "169.254.1.11", auto_config: false
-    # Create Ethernet1
+    # Create Ethernet3
     config.vm.network "private_network", virtualbox__intnet: true, ip: "169.254.1.11", auto_config: false
-    # Create Ethernet2
+    # Create Ethernet4
     config.vm.network "private_network", virtualbox__intnet: true, ip: "169.254.1.11", auto_config: false
   
     config.vm.provider “virtualbox” do |v|
-      # Debugging or to see the console during ZTP
+      # Unconnent for debugging or to see the console during ZTP
       #v.gui = true
 
       # Networking:
@@ -98,4 +98,4 @@ Logout and destroy the VM (All changes since boot will be lost)
 
 ## Support
 
-The contents of this repository are provided as-is with no warranty.  However, as I use this, myself, I have considerable interest in ensuring this works reliably and stays up to date.  Community support is encouraged.
+The contents of this repository are provided as-is with no warranty.  However, as I use this, myself, I have considerable interest in ensuring it works reliably and stays up to date.  Community support is encouraged.
