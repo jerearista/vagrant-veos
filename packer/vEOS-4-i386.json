@@ -70,8 +70,8 @@
            "type": "file"
        },
        {
-           "source": "scripts/vagrant.pub",
-           "destination": "/mnt/flash/vagrant.pub",
+           "source": "scripts/authorized_keys",
+           "destination": "/mnt/flash/authorized_keys",
            "type": "file"
        },
        {

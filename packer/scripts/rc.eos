@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# Install the insecure vagrant key
+# Install the vagrant insecure key
 sudo install -d -m 0700 /root/.ssh
-sudo cp /mnt/flash/vagrant.pub /root/.ssh/authorized_keys
-sudo chmod 0600 /root/.ssh/authorized_keys
+sudo install -m 0600 /mnt/flash/authorized_keys /root/.ssh/
+
+# Backup the authorized_keys file whenever it changes so we can
+#   restore it on next boot. (Vagrant replaces the default insecure key)
+inotifyrun --daemon --command='cp /root/.ssh/authorized_keys /mnt/flash/' \
+    /root/.ssh
