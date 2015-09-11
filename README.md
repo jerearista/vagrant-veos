@@ -44,7 +44,7 @@ Optionally, add any additional configuration to your Vagrantfile, then ‘up’ 
 
     vagrant up
     vagrant ssh
-    -bash-4.1# FastCLI
+    -bash-4.1# FastCli
     localhost> enable
     localhost# show version
 
