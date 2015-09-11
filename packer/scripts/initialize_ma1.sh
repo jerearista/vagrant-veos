@@ -12,6 +12,6 @@ interface Management1
 exit
 wr mem"
 
-DHCLIENT_PID = `ps fauxwww | grep -v grep | grep dhclient | awk -F\  '{print $2}'`
+DHCLIENT_PID=`ps fauxwww | grep -v grep | grep dhclient | awk -F\  '{print $2}'`
 
 sudo kill -9 $DHCLIENT_PID
