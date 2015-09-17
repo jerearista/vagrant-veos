@@ -7,7 +7,8 @@ aaa authorization exec default local
 !
 aaa root secret 0 vagrant
 !
-username admin privilege 15 role network-admin secret 5 $1$qOKYcS3Z$YQFjW2k04vX.jh7q3cIbB1
+username admin privilege 15 role network-admin secret 0 admin
+username vagrant privilege 15 role network-admin secret 0 vagrant
 !
 interface Management1
 !
