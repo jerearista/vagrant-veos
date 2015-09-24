@@ -65,6 +65,11 @@
    ],
    "provisioners": [
        {
+           "source": "scripts/initialize_ma1.sh",
+           "destination": "/mnt/flash/initialize_ma1.sh",
+           "type": "file"
+       },
+       {
            "source": "scripts/startup-config",
            "destination": "/mnt/flash/startup-config",
            "type": "file"

@@ -17,10 +17,10 @@ To build a vagrant box for Arista vEOS, first, you need to download 2 files from
 * Click on Software Downloads (bottom left)
 * Expand vEOS
 * Download Aboot-\*.iso (example: Aboot-veos-2.1.0.iso)
-* Download the vmdk for the desired vEOS version (example: vEOS-lab.4.14.5F.vmdk)
+* Download the vmdk for the desired vEOS version (example: vEOS-lab.4.15.0F.vmdk)
 * Save the 2 files to the packer/source/ directory as Aboot-vEOS.iso and vEOS.vmdk, respectively.
 * cd packer/
-* Build the basebox: ``packer build -var “version=4.14.5F” vEOS-4-i386.json``
+* Build the basebox: ``packer build -var “version=4.15.0F” vEOS-4-i386.json``
 * The completed basebox will be in ../builds/
 
 ## Booting your first vEOS box
@@ -31,14 +31,14 @@ bash shell, enter the EOS CLI, display the EOS version, exit, and destroy the
 VM.   You can customize how your vEOS node starts up by editing the Vagrantfile
 created by ``vagrant init``.
 
-    vagrant box add vEOS-4.14.5F ../builds/vEOS_4.14.5F_virtualbox.box
+    vagrant box add vEOS-4.15.0F ../builds/vEOS_4.15.0F_virtualbox.box
     vagrant box list
 
 Create a new environment and define which box you wish to use
 
     mkdir vEOS-test
     cd vEOS-test
-    vagrant init vEOS-4.14.5F
+    vagrant init vEOS-4.15.0F
 
 Optionally, add any additional configuration to your Vagrantfile, then ‘up’ your VM and login
 
@@ -67,7 +67,7 @@ Logout and destroy the VM (All changes since boot will be lost)
     config.vm.network "private_network", virtualbox__intnet: true, ip: "169.254.1.11", auto_config: false
     # Create Ethernet4
     config.vm.network "private_network", virtualbox__intnet: true, ip: "169.254.1.11", auto_config: false
-  
+
     config.vm.provider “virtualbox” do |v|
       # Unconnent for debugging or to see the console during ZTP
       #v.gui = true
@@ -79,7 +79,7 @@ Logout and destroy the VM (All changes since boot will be lost)
       v.customize [“modifyvm”, :id, “--nic2”, “intnet”, “--intnet2”, “vEOS-intnet1”]
       # Patch Ethernet2 to a particular internal network
       v.customize [“modifyvm”, :id, “--nic3”, “intnet”, “--intnet3”, “vEOS-intnet2”]
-    end 
+    end
 
     # Configure a forwarded port to access eAPI on vEOS
     # https://username:password@localhost:8443/command-api
