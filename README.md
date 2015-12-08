@@ -31,7 +31,7 @@ bash shell, enter the EOS CLI, display the EOS version, exit, and destroy the
 VM.   You can customize how your vEOS node starts up by editing the Vagrantfile
 created by ``vagrant init``.
 
-    vagrant box add vEOS-4.15.0F ../builds/vEOS_4.15.0F_virtualbox.box
+    vagrant box add --name vEOS-lab-4.15.0F ../builds/vEOS-lab-4.15.0F-virtualbox.box
     vagrant box list
 
 Create a new environment and define which box you wish to use
