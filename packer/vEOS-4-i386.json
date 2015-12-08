@@ -7,7 +7,7 @@
    "post-processors": [
      {
        "type": "vagrant",
-       "output": "../builds/vEOS_{{user `version`}}_{{.Provider}}.box",
+       "output": "../builds/vEOS-lab-{{user `version`}}-{{.Provider}}.box",
        "vagrantfile_template": "vagrantfile_templates/vEOS.rb"
       }
    ],
