@@ -38,7 +38,7 @@ Create a new environment and define which box you wish to use
 
     mkdir vEOS-test
     cd vEOS-test
-    vagrant init vEOS-4.15.0F
+    vagrant init vEOS-lab-4.15.0F
 
 Optionally, add any additional configuration to your Vagrantfile, then ‘up’ your VM and login
 
