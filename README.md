@@ -95,6 +95,10 @@ Logout and destroy the VM (All changes since boot will be lost)
       end
       copy running-config startup-config"
     SHELL
+    
+    # Provision files on to flash:
+    config.vm.provision "file", source: "files/rc.eos", destination: "/mnt/flash/rc.eos"
+    config.vm.provision "file", source: "files/rphm-1.1.0-1.rpm", destination: "/mnt/flash/rphm-1.1.0-1.rpm"
 
 ## Support
 
