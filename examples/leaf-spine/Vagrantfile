@@ -2,13 +2,16 @@
 # vi: set ft=ruby :
 
 Vagrant.configure(2) do |config|
+  config.vm.define 'spine00' do |spine00|
+    spine00.vm.box = 'vEOS-4.15.0F'
+    spine00.vm.network 'private_network',
+                       virtualbox__intnet: 's00l01',
+                       ip: '169.254.1.11', auto_config: false
+    spine00.vm.network 'private_network',
+                       virtualbox__intnet: 's00l02',
+                       ip: '169.254.1.11', auto_config: false
 
-  config.vm.define "spine00" do |spine00|
-    spine00.vm.box = "vEOS-4.15.0F"
-    spine00.vm.network "private_network", virtualbox__intnet: "s00l01", ip: "169.254.1.11", auto_config: false
-    spine00.vm.network "private_network", virtualbox__intnet: "s00l02", ip: "169.254.1.11", auto_config: false
-
-    spine00.vm.provision "shell", inline: <<-SHELL
+    spine00.vm.provision 'shell', inline: <<-SHELL
       sleep 30
       FastCli -p 15 -c "configure
       interface Management1
@@ -16,12 +19,16 @@ Vagrant.configure(2) do |config|
     SHELL
   end
 
-  config.vm.define "spine01" do |spine01|
-    spine01.vm.box = "vEOS-4.15.0F"
-    spine01.vm.network "private_network", virtualbox__intnet: "s00l01", ip: "169.254.1.11", auto_config: false
-    spine01.vm.network "private_network", virtualbox__intnet: "s00l02", ip: "169.254.1.11", auto_config: false
+  config.vm.define 'spine01' do |spine01|
+    spine01.vm.box = 'vEOS-4.15.0F'
+    spine01.vm.network 'private_network',
+                       virtualbox__intnet: 's00l01',
+                       ip: '169.254.1.11', auto_config: false
+    spine01.vm.network 'private_network',
+                       virtualbox__intnet: 's00l02',
+                       ip: '169.254.1.11', auto_config: false
 
-    spine01.vm.provision "shell", inline: <<-SHELL
+    spine01.vm.provision 'shell', inline: <<-SHELL
       sleep 30
       FastCli -p 15 -c "configure
       interface Management1
