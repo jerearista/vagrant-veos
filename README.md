@@ -61,12 +61,12 @@ Logout and destroy the VM (All changes since boot will be lost)
     #   The default Vagrantfile template includes Ethernet1 and Ethernet2.  Add lines similar to those below to create
     #     additional NICs which will be Ethernet 3-n                                
     #   Using link-local addresses to satisfy the Vagrantfile config parser, only.  They will not be used by vEOS.
-    #config.vm.network "private_network", ip: "169.254.1.11", auto_config: false, virtualbox__intnet: true
-    #config.vm.network "private_network", virtualbox__intnet: "mynetwork-1", ip: "169.254.1.11", auto_config: false
+    #config.vm.network 'private_network', ip: '169.254.1.11', auto_config: false, virtualbox__intnet: true
+    #config.vm.network 'private_network', virtualbox__intnet: 'mynetwork-1', ip: '169.254.1.11', auto_config: false
     # Create Ethernet3
-    config.vm.network "private_network", virtualbox__intnet: true, ip: "169.254.1.11", auto_config: false
+    config.vm.network 'private_network', virtualbox__intnet: true, ip: '169.254.1.11', auto_config: false
     # Create Ethernet4
-    config.vm.network "private_network", virtualbox__intnet: true, ip: "169.254.1.11", auto_config: false
+    config.vm.network 'private_network', virtualbox__intnet: true, ip: '169.254.1.11', auto_config: false
 
     config.vm.provider “virtualbox” do |v|
       # Unconnent for debugging or to see the console during ZTP
@@ -87,7 +87,7 @@ Logout and destroy the VM (All changes since boot will be lost)
 
     # The sample, below is preconfigured in the basebox
     # Enable eAPI in the EOS config
-    config.vm.provision "shell", inline: <<-SHELL
+    config.vm.provision 'shell', inline: <<-SHELL
       FastCli -p 15 -c "configure
       username vagrant privilege 15 role network-admin secret vagrant
       management api http-commands
@@ -97,8 +97,8 @@ Logout and destroy the VM (All changes since boot will be lost)
     SHELL
     
     # Provision files on to flash:
-    config.vm.provision "file", source: "files/rc.eos", destination: "/mnt/flash/rc.eos"
-    config.vm.provision "file", source: "files/rphm-1.1.0-1.rpm", destination: "/mnt/flash/rphm-1.1.0-1.rpm"
+    config.vm.provision 'file', source: 'files/rc.eos', destination: '/mnt/flash/rc.eos'
+    config.vm.provision 'file', source: 'files/rphm-1.1.0-1.rpm', destination: '/mnt/flash/rphm-1.1.0-1.rpm'
 
 ## Support
 
