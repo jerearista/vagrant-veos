@@ -55,7 +55,7 @@
               [ "modifyvm","{{.Name}}","--nic5","intnet" ],
               [ "modifyvm","{{.Name}}","--intnet5","intnet{{.Name}}-5" ],
               [ "modifyvm","{{.Name}}","--nicpromisc5","allow-all" ],
-              [ "modifyvm","{{.Name}}","--uart1", "0x3F8", "4", "--uartmode1","server", "\\\\.\\pipe\\vEOS-build-serial" ]
+              [ "modifyvm","{{.Name}}","--uart1", "0x3F8", "4", "--uartmode1","disconnected" ]
           ],
           "vboxmanage_post": [
               [ "modifyvm","{{.Name}}","--nic1","intnet" ],
