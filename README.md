@@ -20,7 +20,7 @@ To build a vagrant box for Arista vEOS, first, you need to download 2 files from
 * Download the vmdk for the desired vEOS version (example: vEOS-lab.4.15.0F.vmdk)
 * Save the 2 files to the packer/source/ directory as Aboot-vEOS.iso and vEOS.vmdk, respectively.
 * cd packer/
-* Build the basebox: ``packer build -var “version=4.15.0F” vEOS-4-i386.json``
+* Build the basebox: ``packer build -var "version=4.15.0F" vEOS-4-i386.json``
 * The completed basebox will be in ../builds/
 
 ## Booting your first vEOS box
@@ -68,7 +68,7 @@ Logout and destroy the VM (All changes since boot will be lost)
     # Create Ethernet4
     config.vm.network 'private_network', virtualbox__intnet: true, ip: '169.254.1.11', auto_config: false
 
-    config.vm.provider “virtualbox” do |v|
+    config.vm.provider "virtualbox" do |v|
       # Unconnent for debugging or to see the console during ZTP
       #v.gui = true
 
@@ -76,14 +76,14 @@ Logout and destroy the VM (All changes since boot will be lost)
       #  nic1 is always Management1 which is set to dhcp in the basebox.
       #
       # Patch Ethernet1 to a particular internal network
-      v.customize [“modifyvm”, :id, “--nic2”, “intnet”, “--intnet2”, “vEOS-intnet1”]
+      v.customize ["modifyvm", :id, "--nic2", "intnet", "--intnet2", "vEOS-intnet1"]
       # Patch Ethernet2 to a particular internal network
-      v.customize [“modifyvm”, :id, “--nic3”, “intnet”, “--intnet3”, “vEOS-intnet2”]
+      v.customize ["modifyvm", :id, "--nic3", "intnet", "--intnet3", "vEOS-intnet2"]
     end
 
     # Configure a forwarded port to access eAPI on vEOS
     # https://username:password@localhost:8443/command-api
-    config.vm.network “forwarded_port”, guest: 443, host: 8443
+    config.vm.network "forwarded_port", guest: 443, host: 8443
 
     # The sample, below is preconfigured in the basebox
     # Enable eAPI in the EOS config
