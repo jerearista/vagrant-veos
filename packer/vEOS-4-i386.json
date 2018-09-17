@@ -20,11 +20,11 @@
             "bash<enter><wait>",
             "sudo dhclient ma1<enter><wait>",
             "exit<enter><wait>",
-            "conf<enter>",
-            "aaa authorization exec default local<enter>",
-            "aaa root secret arista<enter>",
-            "username admin privilege 15 role network-admin secret admin<enter>",
-            "<exit>"
+            "conf<enter><wait>",
+            "aaa authorization exec default local<enter><wait>",
+            "aaa root secret arista<enter><wait>",
+            "username admin privilege 15 role network-admin secret admin<enter><wait>",
+            "exit<enter><wait>"
           ],
           "type": "virtualbox-ovf",
           "name" : "vEOS",
@@ -40,7 +40,6 @@
           "vboxmanage": [
               [ "modifyvm","{{.Name}}","--memory","{{user `ram`}}" ],
               [ "modifyvm","{{.Name}}","--cpus","1" ],
-              [ "storageattach","{{.Name}}","--storagectl","IDE","--port","1","--device","0","--type","dvddrive","--medium","source/Aboot-vEOS.iso" ],
               [ "modifyvm","{{.Name}}","--nic1","nat" ],
               [ "modifyvm","{{.Name}}","--nicpromisc1","allow-all" ],
               [ "modifyvm","{{.Name}}","--nic2","intnet" ],

@@ -19,7 +19,7 @@
       <Info>Meta-information about the installed software</Info>
       <Product>vEOS</Product>
       <Vendor>Arista Networks</Vendor>
-      <Version>4.14.5F</Version>
+      <Version>4.21.0F</Version>
       <VendorUrl>http://www.arista.com/</VendorUrl>
     </ProductSection>
     <OperatingSystemSection ovf:id="102">
@@ -59,14 +59,6 @@
         <rasd:ResourceType>5</rasd:ResourceType>
       </Item>
       <Item>
-        <rasd:Address>1</rasd:Address>
-        <rasd:Caption>ideController1</rasd:Caption>
-        <rasd:Description>IDE Controller</rasd:Description>
-        <rasd:InstanceID>4</rasd:InstanceID>
-        <rasd:ResourceSubType>PIIX4</rasd:ResourceSubType>
-        <rasd:ResourceType>5</rasd:ResourceType>
-      </Item>
-      <Item>
         <rasd:Address>0</rasd:Address>
         <rasd:Caption>usb</rasd:Caption>
         <rasd:Description>USB Controller</rasd:Description>
@@ -81,15 +73,6 @@
         <sasd:InstanceID>6</sasd:InstanceID>
         <sasd:Parent>3</sasd:Parent>
         <sasd:ResourceType>17</sasd:ResourceType>
-      </StorageItem>
-      <StorageItem>
-        <sasd:AddressOnParent>0</sasd:AddressOnParent>
-        <sasd:AutomaticAllocation>true</sasd:AutomaticAllocation>
-        <sasd:Caption>cdrom1</sasd:Caption>
-        <sasd:Description>CD-ROM Drive</sasd:Description>
-        <sasd:InstanceID>7</sasd:InstanceID>
-        <sasd:Parent>4</sasd:Parent>
-        <sasd:ResourceType>15</sasd:ResourceType>
       </StorageItem>
       <EthernetPortItem>
         <epasd:AutomaticAllocation>true</epasd:AutomaticAllocation>
@@ -250,9 +233,6 @@
         <StorageController name="IDE" type="PIIX4" PortCount="2" useHostIOCache="true" Bootable="true">
           <AttachedDevice type="HardDisk" port="0" device="0">
             <Image uuid="{7a06459a-1e3c-4185-a7bd-41740d30bda9}"/>
-          </AttachedDevice>
-          <AttachedDevice passthrough="false" type="DVD" port="1" device="0">
-            <Image uuid="{d9da859f-bd2e-492e-986f-cb38438a8d3b}"/>
           </AttachedDevice>
         </StorageController>
       </StorageControllers>
