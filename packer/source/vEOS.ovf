@@ -36,11 +36,11 @@
         <vssd:VirtualSystemType>virtualbox-2.2</vssd:VirtualSystemType>
       </System>
       <Item>
-        <rasd:Caption>1 virtual CPU</rasd:Caption>
+        <rasd:Caption>2 virtual CPU</rasd:Caption>
         <rasd:Description>Number of virtual CPUs</rasd:Description>
         <rasd:InstanceID>1</rasd:InstanceID>
         <rasd:ResourceType>3</rasd:ResourceType>
-        <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+        <rasd:VirtualQuantity>2</rasd:VirtualQuantity>
       </Item>
       <Item>
         <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
@@ -118,7 +118,7 @@
         <RemoteDisplay enabled="false" authType="Null" authTimeout="5000"/>
         <BIOS>
           <ACPI enabled="true"/>
-          <IOAPIC enabled="false"/>
+          <IOAPIC enabled="true"/>
           <Logo fadeIn="true" fadeOut="true" displayTime="0"/>
           <BootMenu mode="MessageAndMenu"/>
           <TimeOffset value="0"/>
@@ -176,7 +176,7 @@
             </DisabledModes>
             <InternalNetwork name="intnet"/>
           </Adapter>
-          <Adapter slot="5" enabled="false" MACAddress="080027260034" cable="true" speed="0" type="82540EM">
+          <Adapter slot="5" enabled="false" MACAddress="080027260034" cable="true" speed="0" promiscuousModePolicy="AllowAll" type="82540EM">
             <DisabledModes>
               <NAT>
                 <DNS pass-domain="true" use-proxy="false" use-host-resolver="false"/>
@@ -184,7 +184,7 @@
               </NAT>
             </DisabledModes>
           </Adapter>
-          <Adapter slot="6" enabled="false" MACAddress="080027D41DCD" cable="true" speed="0" type="82540EM">
+          <Adapter slot="6" enabled="false" MACAddress="080027D41DCD" cable="true" speed="0" promiscuousModePolicy="AllowAll" type="82540EM">
             <DisabledModes>
               <NAT>
                 <DNS pass-domain="true" use-proxy="false" use-host-resolver="false"/>
@@ -192,7 +192,7 @@
               </NAT>
             </DisabledModes>
           </Adapter>
-          <Adapter slot="7" enabled="false" MACAddress="0800271B0B16" cable="true" speed="0" type="82540EM">
+          <Adapter slot="7" enabled="false" MACAddress="0800271B0B16" cable="true" speed="0" promiscuousModePolicy="AllowAll" type="82540EM">
             <DisabledModes>
               <NAT>
                 <DNS pass-domain="true" use-proxy="false" use-host-resolver="false"/>
