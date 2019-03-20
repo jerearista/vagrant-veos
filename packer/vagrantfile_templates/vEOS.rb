@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = '2'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
-  # config.vm.box = 'vEOS_4.14.4F'
+  # config.vm.box = 'vEOS-lab-4.21.0F'
 
   config.vm.provider 'virtualbox' do |_, override|
     # Disable synced folders

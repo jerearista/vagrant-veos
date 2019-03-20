@@ -18,7 +18,7 @@
 # | leaf03  |--------------| leaf04  |
 # +---------+e3          e3+---------+
 
-default_box = 'vEOS-4.17.2F'
+default_box = 'vEOS-lab-4.21.0F'
 
 Vagrant.configure(2) do |config|
   config.vm.define 'spine01' do |spine01|

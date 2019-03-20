@@ -3,7 +3,7 @@
 
 Vagrant.configure(2) do |config|
   config.vm.define 'spine00' do |spine00|
-    spine00.vm.box = 'vEOS-4.15.0F'
+    spine00.vm.box = 'vEOS-lab-4.21.0F'
     spine00.vm.network 'private_network',
                        virtualbox__intnet: 's00l01',
                        ip: '169.254.1.11', auto_config: false
@@ -20,7 +20,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define 'spine01' do |spine01|
-    spine01.vm.box = 'vEOS-4.15.0F'
+    spine01.vm.box = 'vEOS-lab-4.21.0F'
     spine01.vm.network 'private_network',
                        virtualbox__intnet: 's00l01',
                        ip: '169.254.1.11', auto_config: false
