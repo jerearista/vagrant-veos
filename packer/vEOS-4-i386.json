@@ -19,6 +19,44 @@
             "en<enter><wait>",
             "bash<enter><wait>",
             "sudo dhclient ma1<enter><wait>",
+            "echo IyEvYmluL3NoCg== | base64 -d >> /mnt/flash/initialize_ma1.sh<enter>",
+            "echo c3VkbyBkaGNsaWVudCBtYTEK | base64 -d >> /mnt/flash/initialize_ma1.sh<enter>",
+            "echo c2xlZXAgNQo= | base64 -d >> /mnt/flash/initialize_ma1.sh<enter>",
+            "echo TUdNVF9JUD1gaXAgYWRkciBzaG93IGRldiBtYTEgfCBncmVwIGluZXQgfCBhd2sgLUZcICAne3ByaW50ICQyfSdgCg== | base64 -d >> /mnt/flash/initialize_ma1.sh<enter>",
+            "echo RmFzdENsaSAtcCAxNSAtYyAiY29uZmlndXJlCg== | base64 -d >> /mnt/flash/initialize_ma1.sh<enter>",
+            "echo aW50ZXJmYWNlIE1hbmFnZW1lbnQxCg== | base64 -d >> /mnt/flash/initialize_ma1.sh<enter>",
+            "echo ICBpcCBhZGRyZXNzICRNR01UX0lQCg== | base64 -d >> /mnt/flash/initialize_ma1.sh<enter>",
+            "echo ZXhpdAo= | base64 -d >> /mnt/flash/initialize_ma1.sh<enter>",
+            "echo d3IgbWVtIgo= | base64 -d >> /mnt/flash/initialize_ma1.sh<enter>",
+            "echo REhDTElFTlRfUElEPWBwcyBmYXV4d3d3IHwgZ3JlcCAtdiBncmVwIHwgZ3JlcCBkaGNsaWVudCB8IGF3ayAtRlwgICd7cHJpbnQgJDJ9J2AK | base64 -d >> /mnt/flash/initialize_ma1.sh<enter>",
+            "echo c3VkbyBraWxsIC05ICRESENMSUVOVF9QSUQK | base64 -d >> /mnt/flash/initialize_ma1.sh<enter>",
+            "echo IyEvYmluL2Jhc2gK | base64 -d >> /mnt/flash/rc.eos<enter>",
+            "echo c3VkbyBpbnN0YWxsIC1kIC1tIDA3MDAgL3Jvb3QvLnNzaAo= | base64 -d >> /mnt/flash/rc.eos<enter>",
+            "echo c3VkbyBpbnN0YWxsIC1tIDA2MDAgL21udC9mbGFzaC9hdXRob3JpemVkX2tleXMgL3Jvb3QvLnNzaC8K | base64 -d >> /mnt/flash/rc.eos<enter>",
+            "echo aW5vdGlmeXJ1biAtLWRhZW1vbiAtLWNvbW1hbmQ9J2NwIC9yb290Ly5zc2gvYXV0aG9yaXplZF9rZXlzIC9tbnQvZmxhc2gvJyAvcm9vdC8uc3NoCg== | base64 -d >> /mnt/flash/rc.eos<enter>",
+            "echo c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBQkl3QUFBUUVBNk5GOGlhbGx2UVZwMjJXRGtUa3lydHZwOWVXVzZBOFlWcitrejRUakdZZTdnSHpJdytuaU5sdEdFRkh6RDgrdjFJMllKNm9YZXZjdDFZZVMwbzlIWnlOMVE5cWdDZ3pVRnRkT0tMdjZJZWRwbHFvUGtjbUYwYVlldDJQa0VEbzNNbFRCY2tGWFBJVEFNekY4ZEpTSUZvOUQ4SGZkT1YwSUFkeDRPN1B0aXhXS241eTJoTU5HMHpRUHlVZWNwNHB6QzZraXZBSWh5ZkhpbEZSNjFSR0wrR1BYUTJNV1pXRlliQUdqeWlZSm5BbUNQM05PVGQwak1aRW5Ea2JVdnhoTW1CWVNkRVRrMXJSZ20rUjRMT3pGVUdhSHFIRExLTFgrRklQS2NGOTZocnVjWHpjV3lMYkliRWdFOThPSGxuVllDelJkSzhqbHFtOHRlaFVjOWM5V2hRPT0gdmFncmFudCBpbnNlY3VyZSBwdWJsaWMga2V5Cg== | base64 -d >> /mnt/flash/authorized_keys<enter>",
+            "echo IQo= | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo ZXZlbnQtaGFuZGxlciBkaGNsaWVudAo= | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo ICAgdHJpZ2dlciBvbi1ib290Cg== | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo ICAgYWN0aW9uIGJhc2ggc3VkbyAvbW50L2ZsYXNoL2luaXRpYWxpemVfbWExLnNoCg== | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo IQo= | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo YWFhIGF1dGhvcml6YXRpb24gZXhlYyBkZWZhdWx0IGxvY2FsCg== | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo IQo= | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo YWFhIHJvb3Qgc2VjcmV0IDAgdmFncmFudAo= | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo IQo= | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo dXNlcm5hbWUgYWRtaW4gcHJpdmlsZWdlIDE1IHJvbGUgbmV0d29yay1hZG1pbiBzZWNyZXQgMCBhZG1pbgo= | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo dXNlcm5hbWUgdmFncmFudCBwcml2aWxlZ2UgMTUgcm9sZSBuZXR3b3JrLWFkbWluIHNlY3JldCAwIHZhZ3JhbnQK | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo IQo= | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo aW50ZXJmYWNlIE1hbmFnZW1lbnQxCg== | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo IQo= | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo bm8gaXAgcm91dGluZwo= | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo IQo= | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo bWFuYWdlbWVudCBhcGkgaHR0cC1jb21tYW5kcwo= | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo ICAgbm8gc2h1dGRvd24K | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo IQo= | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo IQo= | base64 -d >> /mnt/flash/startup-config<enter>",
+            "echo ZW5kCg== | base64 -d >> /mnt/flash/startup-config<enter><wait>",
+            "chmod 755 /mnt/flash/initialize_ma1.sh<enter><wait>",
             "exit<enter><wait>",
             "conf<enter>",
             "aaa authorization exec default local<enter>",
@@ -64,26 +102,5 @@
           ]
       }
    ],
-   "provisioners": [
-       {
-           "source": "scripts/initialize_ma1.sh",
-           "destination": "/mnt/flash/initialize_ma1.sh",
-           "type": "file"
-       },
-       {
-           "source": "scripts/startup-config",
-           "destination": "/mnt/flash/startup-config",
-           "type": "file"
-       },
-       {
-           "source": "scripts/authorized_keys",
-           "destination": "/mnt/flash/authorized_keys",
-           "type": "file"
-       },
-       {
-           "source": "scripts/rc.eos",
-           "destination": "/mnt/flash/rc.eos",
-           "type": "file"
-       }
-   ]
+   "provisioners": [ ]
 }
