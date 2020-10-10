@@ -21,6 +21,10 @@ To build a vagrant box for Arista vEOS, first, you need to download 2 files from
 * Save the 2 files to the packer/source/ directory as Aboot-vEOS.iso and vEOS.vmdk, respectively.
 * cd packer/
 * Build the basebox: ``packer build -var “version=4.15.0F” vEOS-4-i386.json``
+* After the built completes, in order to prevent filesystem corruption you must manually shut down the VM with the following commands on the console:
+  * `exit`
+  * `bash`
+  * `sudo shutdown -h now`
 * The completed basebox will be in ../builds/
 
 ## Booting your first vEOS box
