@@ -27,6 +27,7 @@
             "<exit>"
           ],
           "type": "virtualbox-ovf",
+          "disable_shutdown": "True",
           "name" : "vEOS",
           "vm_name": "vEOS-{{user `version`}}",
           "headless" : "True",
